@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Rohit Kshetri</title>
+    <meta name="description" content="Shop exclusive Rohit Kshetri merchandise, featuring premium apparel, collectibles, and music memorabilia from Nepal and India tours.">
+    <meta name="keywords" content="Rohit Kshetri, band merchandise, tour apparel, collectibles, music memorabilia, Nepal, India, exclusive">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #b8860b;
+            --dark-gold: #a0780a;
+            --light-gold: #f8f0e0;
+            --white: #ffffff;
+            --off-white: #f9f7f0;
+            --dark-text: #222222;
+            --medium-text: #555555;
+            --light-text: #777777;
+            --success-green: #28a745;
+            --error-red: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-text);
+            background: var(--off-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 100%);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.3px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .logo-main {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-main span:not(:last-child):after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            color: var(--medium-text);
+            opacity: 0.5;
+        }
+
+        .logo-sub {
+            font-size: 0.85rem;
+            color: var(--medium-text);
+            font-weight: 400;
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            background-color: var(--white);
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out;
+            top: 20%;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 25px auto;
+            border: none;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .section-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--medium-text);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-filter input,
+        .search-filter select {
+            padding: 12px 20px;
+            border: 1px solid var(--light-text);
+            border-radius: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-filter input:focus,
+        .search-filter select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
+        }
+
+        .search-filter input {
+            width: 350px;
+            max-width: 100%;
+        }
+
+        .search-filter select {
+            width: 180px;
+        }
+
+        .search-filter button {
+            padding: 12px 25px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-filter button:hover {
+            background: var(--dark-gold);
+            transform: scale(1.05);
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .shop-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .shop-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #f0f0f0 url('https://via.placeholder.com/300x200?text=Image+Not+Found') center/cover no-repeat;
+        }
+
+        .shop-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+
+        .shop-card p.description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .shop-card .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .shop-card .status {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .status-sold-out {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        .status-coming-soon {
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--gold);
+        }
+
+        .shop-card button {
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .shop-card button:disabled {
+            border-color: var(--light-text);
+            color: var(--light-text);
+            cursor: not-allowed;
+        }
+
+        .shop-card button:not(:disabled):hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .shop-card .members-only {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .shop-card:hover .members-only {
+            opacity: 1;
+        }
+
+        .shop-card .members-only i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .shop-card .members-only p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        footer .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        footer .logo {
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter {
+            margin: 20px auto;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .newsletter input {
+            padding: 12px 20px;
+            width: 70%;
+            border: 1px solid var(--light-text);
+            border-radius: 5px 0 0 5px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+        }
+
+        .newsletter button {
+            padding: 12px 20px;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 0 5px 5px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: var(--dark-gold);
+        }
+
+        .newsletter-message {
+            margin-top: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .newsletter-message.success {
+            color: var(--success-green);
+            opacity: 1;
+        }
+
+        .newsletter-message.error {
+            color: var(--error-red);
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .search-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-filter input,
+            .search-filter select {
+                width: 100%;
+                max-width: none;
+            }
+
+            .shop-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .shop-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .shop-card p.description {
+                font-size: 1rem;
+            }
+
+            .shop-card .price {
+                font-size: 1.3rem;
+            }
+
+            .shop-card img {
+                height: 150px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-header p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-sub {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            header {
+                min-height: 600px;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .search-filter {
+                gap: 10px;
+                padding: 15px;
+                background: var(--off-white);
+                border: 1px solid rgba(184, 134, 11, 0.2);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .search-filter input,
+            .search-filter select {
+                width: 100%;
+                padding: 10px 15px;
+                font-size: 1rem;
+                border-radius: 6px;
+            }
+
+            .search-filter button {
+                width: 100%;
+                padding: 12px;
+                font-size: 1rem;
+                border-radius: 6px;
+                transition: transform 0.2s ease;
+            }
+
+            .search-filter button:hover {
+                transform: scale(1.03);
+            }
+
+            .shop-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .shop-card {
+                padding: 15px;
+            }
+
+            .shop-card img {
+                height: 120px;
+            }
+
+            .shop-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .shop-card p.description {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .shop-card .price {
+                font-size: 1.2rem;
+            }
+
+            .shop-card .status {
+                font-size: 0.9rem;
+                padding: 5px 15px;
+            }
+
+            .shop-card button {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0;
+                margin-bottom: 20px;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            }
+
+            .logo-main {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .logo-main span:not(:last-child):after {
+                display: none;
+            }
+
+            .newsletter input {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter button {
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-main">
+                        <span>Private Music Official</span>
+                    </div>
+                 
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="music.html">MUSIC</a>
+                    <a href="gallery.html">GALLERY</a>
+                    <a href="tour.html">TOUR</a>
+                    <a href="shop.html" class="active">SHOP</a>
+                    <a href="about.html">ABOUT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <h1>Exclusive Merchandise Collection</h1>
+                <hr class="gold-divider">
+                <p>Explore Rohit Kshetri’s premium apparel, collectibles, and music memorabilia, crafted for fans and collectors.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="shop section">
+        <div class="section-container">
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search by item name..." aria-label="Search merchandise">
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="all">All Categories</option>
+                    <option value="apparel">Apparel Collections</option>
+                    <option value="collectibles">Collectibles</option>
+                    <option value="memorabilia">Music Memorabilia</option>
+                </select>
+                <select id="priceFilter" aria-label="Filter by price">
+                    <option value="all">All Prices</option>
+                    <option value="0-5000">₹0 - ₹5,000</option>
+                    <option value="5001-10000">₹5,001 - ₹10,000</option>
+                    <option value="10001-50000">₹10,001 - ₹50,000</option>
+                    <option value="50001+">₹50,001+</option>
+                </select>
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="all">All Status</option>
+                    <option value="sold-out">Sold Out</option>
+                    <option value="coming-soon">Coming Soon</option>
+                </select>
+                <button id="searchButton"><i class="fas fa-search"></i> Search</button>
+            </div>
+
+            <!-- Apparel Collections -->
+            <div class="section-header">
+                <h2>Apparel Collections</h2>
+                <p>Timeless designs inspired by Rohit Kshetri’s tours and music.</p>
+            </div>
+            <div class="shop-grid" id="apparelGrid">
+                <!-- Signature Hoodies -->
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="Love On Road.jpeg" alt="Love On Road Hoodie">
+                    <h3>Love On Road Hoodie</h3>
+                    <p class="description">Rich, velvety fleece with a brushed interior for next-level softness.</p>
+                    <p class="price">₹3,900</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="Love On Road1.jpeg" alt="Love On Road Hoodie">
+                    <h3>Love On Road Hoodie</h3>
+                    <p class="description">Premium brushed fleece fabric for a cozy and fashion, lived-in feel...</p>
+                    <p class="price">₹4,500</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="God Heals.jpeg" alt="God Heals Hoodie">
+                    <h3>God Heals Hoodie</h3>
+                    <p class="description">Vintage grey hoodie with bold graphic, premium design, brushed interior.</p>
+                    <p class="price">₹4,500</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="Love.jpeg" alt="Love Hoodie">
+                    <h3>Love Hoodie</h3>
+                    <p class="description">Vibrant yellow hoodie with love print.</p>
+                    <p class="price">₹4,500</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="White.jpeg" alt="White Hoodie">
+                    <h3>White Hoodie</h3>
+                    <p class="description">Clean white hoodie with subtle branding.</p>
+                    <p class="price">₹4,500</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4500" data-status="coming-soon">
+                    <img src="Slow Hands.jpeg" alt="Slow Hands Hoodie">
+                    <h3>Slow Hands Hoodie</h3>
+                    <p class="description">Bright hoodie with tour-inspired design.</p>
+                    <p class="price">₹4,500</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="6000" data-status="coming-soon">
+                    <img src="Weather Girl.jpeg" alt="Weather Girl Hoodie">
+                    <h3>Weather Girl Hoodie</h3>
+                    <p class="description">Deep blue hoodie with metallic accents.</p>
+                    <p class="price">₹6,000</p>
+                    <span class="status status-coming-soon">Coming Soon</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <!-- Tour Sweatshirts -->
+                <div class="shop-card" data-category="apparel" data-price="4000" data-status="sold-out">
+                    <img src="Heavy Metal.jpeg" alt="Heavy Metal Tour Sweatshirt 1">
+                    <h3>Heavy Metal Tour Sweatshirt 1</h3>
+                    <p class="description">Commemorative sweatshirt from the Heavy Metal Tour.</p>
+                    <p class="price">₹4,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4000" data-status="sold-out">
+                    <img src="Heavy Metal 2.jpeg" alt="Heavy Metal Tour Sweatshirt 2">
+                    <h3>Heavy Metal Tour Sweatshirt 2</h3>
+                    <p class="description">Commemorative sweatshirt from the Heavy Metal Tour.</p>
+                    <p class="price">₹4,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4000" data-status="sold-out">
+                    <img src="Love On Road Sweatshirt.jpeg" alt="Love On Road Sweatshirt 1">
+                    <h3>Love On Road Sweatshirt 1</h3>
+                    <p class="description">Iconic sweatshirt from the Love On Road Tour.</p>
+                    <p class="price">₹4,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="4000" data-status="sold-out">
+                    <img src="Love On Road Sweatshirt 2.jpeg" alt="Love On Road Sweatshirt 2">
+                    <h3>Love On Road Sweatshirt 2</h3>
+                    <p class="description">Iconic sweatshirt from the Love On Road Tour.</p>
+                    <p class="price">₹4,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <!-- Glasses -->
+                <div class="shop-card" data-category="apparel" data-price="3500" data-status="sold-out">
+                    <img src="Brown Shorts.jpeg" alt="Brown Shorts">
+                    <h3>Brown Shorts</h3>
+                    <p class="description">Summery vibes and coolness.</p>
+                    <p class="price">₹3,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="3500" data-status="sold-out">
+                    <img src="Shorts.jpeg" alt="Cream Shorts">
+                    <h3>Cream Shorts</h3>
+                    <p class="description">Summery vibes and coolness.</p>
+                    <p class="price">₹3,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="2500" data-status="sold-out">
+                    <img src="Vintage Round Glasses.jpeg" alt="Vintage Round Glasses">
+                    <h3>Vintage Round Glasses</h3>
+                    <p class="description">Retro round frames with logo engraving.</p>
+                    <p class="price">₹2,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="2500" data-status="sold-out">
+                    <img src="Simple.jpeg" alt="Metallic Glasses">
+                    <h3>Metallic Glasses</h3>
+                    <p class="description">Bold glasses with visual inspired design.</p>
+                    <p class="price">₹2,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <!-- Tour Bands -->
+                <div class="shop-card" data-category="apparel" data-price="2500" data-status="sold-out">
+                    <img src="Pink Glass.jpeg" alt="Pink Glasses">
+                    <h3>Pink Glasses</h3>
+                    <p class="description">Glasses for your next concert.</p>
+                    <p class="price">₹2,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="500" data-status="sold-out">
+                    <img src="Tour.jpeg" alt="Backstage Wristband">
+                    <h3>Backstage Wristband</h3>
+                    <p class="description">Backstage Pass wristband.</p>
+                    <p class="price">₹500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="500" data-status="sold-out">
+                    <img src="Love On Road Wristband.jpeg" alt="Love On Road Wristband">
+                    <h3>Love On Road Wristband</h3>
+                    <p class="description">Love On Road Tour wristband.</p>
+                    <p class="price">₹500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <!-- Lyric T-Shirts -->
+                <div class="shop-card" data-category="apparel" data-price="2000" data-status="sold-out">
+                    <img src="Love asd.jpeg" alt="Lyric T-Shirt - Love">
+                    <h3>Lyric T-Shirt - Love</h3>
+                    <p class="description">Love lyric T-shirt.</p>
+                    <p class="price">₹2,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="2000" data-status="sold-out">
+                    <img src="World Of Mine.jpeg" alt="Lyric T-Shirt - World Of Mine">
+                    <h3>Lyric T-Shirt - World Of Mine</h3>
+                    <p class="description">World Of Mine lyric T-shirt.</p>
+                    <p class="price">₹2,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="2000" data-status="sold-out">
+                    <img src="Love You.jpeg" alt="Lyric T-Shirt - Killer">
+                    <h3>Lyric T-Shirt - Killer</h3>
+                    <p class="description">Love You lyric T-shirt.</p>
+                    <p class="price">₹2,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="2000" data-status="sold-out">
+                    <img src="Love Me Sometimes.jpeg" alt="Lyric T-Shirt - Slow Hands">
+                    <h3>Lyric T-Shirt - Slow Hands</h3>
+                    <p class="description">Love Me Sometimes lyric T-shirt.</p>
+                    <p class="price">₹2,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <!-- Tour Caps -->
+                <div class="shop-card" data-category="apparel" data-price="1500" data-status="sold-out">
+                    <img src="Black Cap.jpeg" alt="Black Cap">
+                    <h3>Black Cap</h3>
+                    <p class="description">Black cap with embroidered tour logo.</p>
+                    <p class="price">₹1,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="apparel" data-price="1500" data-status="sold-out">
+                    <img src="Pink Cap.jpeg" alt="Pink Cap">
+                    <h3>Pink Cap</h3>
+                    <p class="description">Pink-stitched cap with minimalist design.</p>
+                    <p class="price">₹1,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+            </div>
+
+            <!-- Collectibles -->
+            <div class="section-header">
+                <h2>Collectibles</h2>
+                <p>Rare items from Rohit Kshetri’s tours and performances.</p>
+            </div>
+            <div class="shop-grid" id="collectiblesGrid">
+                <div class="shop-card" data-category="collectibles" data-price="3000" data-status="sold-out">
+                    <h3>Concert Poster - 2024 Tour</h3>
+                    <p class="description">Limited edition poster from 2024 tour.</p>
+                    <p class="price">₹3,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="collectibles" data-price="5000" data-status="sold-out">
+                    <h3>Personalized Letter - Signed</h3>
+                    <p class="description">Hand-signed letter from Rohit Kshetri.</p>
+                    <p class="price">₹5,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="collectibles" data-price="3500" data-status="sold-out">
+                    <h3>Tour Bag - Tote Edition</h3>
+                    <p class="description">Exclusive tour-branded tote bag.</p>
+                    <p class="price">₹3,500</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="collectibles" data-price="4000" data-status="sold-out">
+                    <h3>Backstage Pass - 2024</h3>
+                    <p class="description">Authentic 2024 tour backstage pass.</p>
+                    <p class="price">₹4,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="collectibles" data-price="10000" data-status="sold-out">
+                    <h3>VIP Pass - Limited Edition</h3>
+                    <p class="description">Exclusive VIP pass from 2024 tour.</p>
+                    <p class="price">₹10,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                    <div class="members-only" role="button" aria-label="Members-only content, click to enter password">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Memorabilia -->
+            <div class="section-header">
+                <h2>Music Memorabilia</h2>
+                <p>Iconic instruments and artifacts from Rohit Kshetri’s performances.</p>
+            </div>
+            <div class="shop-grid" id="memorabiliaGrid">
+                <div class="shop-card" data-category="memorabilia" data-price="100000" data-status="sold-out">
+                    <h3>Heavy Metal Tour Guitar</h3>
+                    <p class="description">Stage-used guitar from Heavy Metal Tour.</p>
+                    <p class="price">₹1,00,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                    <div class="members-only" role="button" aria-label="Members-only content, click to enter password">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="shop-card" data-category="memorabilia" data-price="75000" data-status="sold-out">
+                    <h3>Drum Set - Tour Edition</h3>
+                    <p class="description">Authentic tour-used drum set.</p>
+                    <p class="price">₹75,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="memorabilia" data-price="5000" data-status="sold-out">
+                    <h3>Vinyl Collection - Limited</h3>
+                    <p class="description">Exclusive vinyl collection of hits.</p>
+                    <p class="price">₹5,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="memorabilia" data-price="25000" data-status="sold-out">
+                    <h3>Gold Record - Certified</h3>
+                    <p class="description">Certified gold record from top album.</p>
+                    <p class="price">₹25,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="memorabilia" data-price="15000" data-status="sold-out">
+                    <h3>Microphone - Stage Used</h3>
+                    <p class="description">Stage-used microphone from tour.</p>
+                    <p class="price">₹15,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+                <div class="shop-card" data-category="memorabilia" data-price="50000" data-status="sold-out">
+                    <h3>Keyboard - Tour Used</h3>
+                    <p class="description">Tour-used keyboard with signature.</p>
+                    <p class="price">₹50,000</p>
+                    <span class="status status-sold-out">Sold Out</span>
+                    <button disabled>Notify Me</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="section-container">
+            <div class="logo">
+                <div class="logo-main">
+                 
+                </div>
+                <div class="logo-sub">Managed by WQ Studio & BnT Musiz and Label</div>
+            </div>
+            <p>© 2025 Rohit Kshetri & Rashmika Luitel. All rights reserved.</p>
+            <p>Under our private music policy, visual and audio assets are protected and unavailable for public sharing. For inquiries regarding authorized access, please contact our media team.</p>
+            <div class="newsletter">
+                <input type="email" placeholder="Enter email for restock updates" aria-label="Email for newsletter">
+                <button>Subscribe</button>
+                <div class="newsletter-message"></div>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/yourprofile" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Highlight active navigation link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').split('#')[0];
+                if (href === currentPage || (href === 'index.html' && window.location.pathname === '/')) {
+                    link.classList.add('active');
+                }
+                link.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === currentPage) {
+                        e.preventDefault();
+                    }
+                });
+            });
+
+            // Smooth scroll for in-page anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && !href.includes('.html')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const navContainer = document.querySelector('.nav-container');
+                            const navHeight = navContainer ? navContainer.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - navHeight - 20;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Members-only password prompt
+            const membersOnly = document.querySelectorAll('.members-only');
+            membersOnly.forEach(item => {
+                item.addEventListener('click', () => {
+                    const password = prompt('Enter password for members-only content:');
+                    if (password === 'member123') {
+                        item.style.display = 'none';
+                    } else {
+                        alert('Incorrect password. Please try again.');
+                    }
+                });
+            });
+
+            // Search and filter functionality with debouncing
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const priceFilter = document.getElementById('priceFilter');
+            const statusFilter = document.getElementById('statusFilter');
+            const searchButton = document.getElementById('searchButton');
+            const shopCards = document.querySelectorAll('.shop-card');
+
+            function debounce(func, wait) {
+                let timeout;
+                return function (...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+
+            function filterItems() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+                const selectedPrice = priceFilter.value;
+                const selectedStatus = statusFilter.value;
+
+                shopCards.forEach(card => {
+                    const name = card.querySelector('h3').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    const price = parseInt(card.getAttribute('data-price'));
+                    const status = card.getAttribute('data-status');
+
+                    const matchesSearch = name.includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+                    let matchesPrice = true;
+                    if (selectedPrice !== 'all') {
+                        const [min, max] = selectedPrice.split('-').map(Number);
+                        matchesPrice = price >= min && (max ? price <= max : true);
+                    }
+                    const matchesStatus = selectedStatus === 'all' || status === selectedStatus;
+
+                    if (matchesSearch && matchesCategory && matchesPrice && matchesStatus) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', debounce(filterItems, 300));
+            categoryFilter.addEventListener('change', filterItems);
+            priceFilter.addEventListener('change', filterItems);
+            statusFilter.addEventListener('change', filterItems);
+            searchButton.addEventListener('click', filterItems);
+
+            // Newsletter signup with message below input
+            const newsletterButton = document.querySelector('.newsletter button');
+            const newsletterMessage = document.querySelector('.newsletter-message');
+            newsletterButton.addEventListener('click', () => {
+                const emailInput = document.querySelector('.newsletter input');
+                newsletterMessage.classList.remove('success', 'error');
+                if (emailInput.value) {
+                    newsletterMessage.textContent = 'Thank you for subscribing! You will receive restock updates.';
+                    newsletterMessage.classList.add('success');
+                    emailInput.value = '';
+                } else {
+                    newsletterMessage.textContent = 'Please enter a valid email address.';
+                    newsletterMessage.classList.add('error');
+                }
+                setTimeout(() => {
+                    newsletterMessage.classList.remove('success', 'error');
+                    newsletterMessage.textContent = '';
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>

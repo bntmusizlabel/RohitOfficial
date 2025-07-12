@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour - Rohit Kshetri</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #b8860b;
+            --dark-gold: #a0780a;
+            --light-gold: #f8f0e0;
+            --white: #ffffff;
+            --off-white: #f9f7f0;
+            --dark-text: #222222;
+            --medium-text: #555555;
+            --light-text: #777777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-text);
+            background: var(--off-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 100%);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.3px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .logo-main {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-main span:not(:last-child):after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            color: var(--medium-text);
+            opacity: 0.5;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            background-color: var(--white);
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+            top: 20%;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 25px auto;
+            border: none;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .section-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--medium-text);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tour {
+            background-color: var(--white);
+        }
+
+        .search-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .search-filter input,
+        .search-filter select {
+            padding: 10px 15px;
+            border: 1px solid var(--light-text);
+            border-radius: 5px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-filter input:focus,
+        .search-filter select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(184, 134, 11, 0.2);
+        }
+
+        .search-filter input {
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .search-filter select {
+            width: 150px;
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tour-card {
+            background: var(--off-white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+
+        .tour-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            margin-bottom: 8px;
+        }
+
+        .tour-status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+        .status-cancelled {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        .tour-card .members-only {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tour-card .members-only i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .tour-card:hover .members-only {
+            opacity: 1;
+        }
+
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        footer .logo {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 8px 12px;
+            }
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+            .search-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            .search-filter input,
+            .search-filter select {
+                width: 100%;
+                max-width: 300px;
+            }
+            .tour-grid {
+                grid-template-columns: 1fr;
+            }
+            .tour-card h3 {
+                font-size: 1.3rem;
+            }
+            .tour-card p {
+                font-size: 1rem;
+            }
+            .header-content {
+                padding-top: 15px;
+            }
+            .nav-container {
+                padding: 0 20px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .gold-divider {
+                margin: 15px auto;
+            }
+            header {
+                min-height: 600px;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0;
+                margin-bottom: 20px;
+            }
+            .nav-links a {
+                font-size: 1rem;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            }
+            .hero {
+                padding: 30px 20px;
+            }
+            .logo-main {
+                flex-direction: column;
+                gap: 0;
+            }
+            .logo-main span:not(:last-child):after {
+                display: none;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .section-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-main">
+                        <span>Private Music Official</span>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="music.html">MUSIC</a>
+                    <a href="gallery.html">GALLERY</a>
+                    <a href="tour.html" class="active">TOUR</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="about.html">ABOUT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <h1>Tour Dates</h1>
+                <hr class="gold-divider">
+                <p>Explore Rohit Kshetri's past and upcoming performances across Nepal and India.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="tour section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Shows</h2>
+            </div>
+            <div class="search-filter">
+                <input type="text" id="searchInput" placeholder="Search by venue or location...">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="all">All Years</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+            <div class="tour-grid" id="tourGrid">
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>The Attic, Hetauda, NPL</h3>
+                    <p>January 5, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Cafe De Park, Hetauda, NPL</h3>
+                    <p>January 23, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>The Piano Man Jazz Club, New Delhi, IND</h3>
+                    <p>February 7, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Sauraha Beach Restaurant, Chitwan, NPL</h3>
+                    <p>February 13, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Busy Bee Cafe, Pokhara, NPL</h3>
+                    <p>March 8, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>The Everest Restaurant, Dharan, NPL</h3>
+                    <p>April 21, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2019">
+                    <h3>Hotel Star Palace, Dharan, NPL</h3>
+                    <p>June 2, 2019</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2019">
+                    <h3>The Lounge, Biratnagar, NPL</h3>
+                    <p>August 9, 2019</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2019">
+                    <h3>The Attic, Hetauda, NPL</h3>
+                    <p>September 15, 2019</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Purple Martini, Kathmandu, NPL</h3>
+                    <p>October 9, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Irish Pub Lazimpat, Kathmandu, NPL</h3>
+                    <p>December 1, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>The Bombay Canteen, Mumbai, IND</h3>
+                    <p>December 15, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2019">
+                    <h3>Toit Brewpub, Bangalore, IND</h3>
+                    <p>December 22, 2019</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2020">
+                    <h3>Tito’s, Goa, IND</h3>
+                    <p>January 10, 2020</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2020">
+                    <h3>Farzi Cafe, Kolkata, IND</h3>
+                    <p>February 3, 2020</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Sidecar, New Delhi, IND</h3>
+                    <p>March 10, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Mocha Cafe & Bar, Pokhara, NPL</h3>
+                    <p>March 25, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Aer, Mumbai, IND</h3>
+                    <p>April 12, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Cafe Mambo, Goa, IND</h3>
+                    <p>May 7, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Arbor Brewing Company, Bangalore, IND</h3>
+                    <p>June 15, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Roadhouse Cafe, Kathmandu, NPL</h3>
+                    <p>July 9, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Social, Pune, IND</h3>
+                    <p>August 3, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Bar Bar, Jaipur, IND</h3>
+                    <p>September 18, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>The Southern Grill, Chennai, IND</h3>
+                    <p>October 22, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Smoke House Deli, Kolkata, IND</h3>
+                    <p>November 5, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2022">
+                    <h3>Olive Bar & Kitchen, Hyderabad, IND</h3>
+                    <p>December 12, 2022</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2023">
+                    <h3>Purple Haze Rock Bar, Pokhara, NPL</h3>
+                    <p>January 10, 2023</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2023">
+                    <h3>Shisha Lounge and Bar, Kathmandu, NPL</h3>
+                    <p>February 15, 2023</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2023">
+                    <h3>The Riverside Cafe, Chitwan, NPL</h3>
+                    <p>March 20, 2023</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2023">
+                    <h3>The Lounge, Biratnagar, NPL</h3>
+                    <p>April 25, 2023</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2023">
+                    <h3>Rosemary Kitchen, Dharan, NPL</h3>
+                    <p>May 30, 2023</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2023">
+                    <h3>Lord of the Drinks, New Delhi, IND</h3>
+                    <p>June 5, 2023</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2023">
+                    <h3>Bastian, Mumbai, IND</h3>
+                    <p>June 12, 2023</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2023">
+                    <h3>The Brew Estate, Bangalore, IND</h3>
+                    <p>June 20, 2023</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Masala Library, Mumbai, IND</h3>
+                    <p>January 10, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Hauz Khas Social, New Delhi, IND</h3>
+                    <p>January 15, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Bier Library, Bangalore, IND</h3>
+                    <p>January 20, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Shiva’s Bar & Restaurant, Goa, IND</h3>
+                    <p>January 25, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Monkey Bar, Pune, IND</h3>
+                    <p>February 5, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Bayleaf, Chennai, IND</h3>
+                    <p>February 10, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Fatty Bao, Kolkata, IND</h3>
+                    <p>February 15, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Tre-Forni Bar, Hyderabad, IND</h3>
+                    <p>February 20, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Chimney Restaurant, Kathmandu, NPL</h3>
+                    <p>March 2, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>All That Jazz, Pokhara, NPL</h3>
+                    <p>March 10, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>KC’s Restaurant, Chitwan, NPL</h3>
+                    <p>March 15, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Factory Bar & Kitchen, Biratnagar, NPL</h3>
+                    <p>March 20, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Black Pepper, Jaipur, IND</h3>
+                    <p>April 5, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Flying Saucer, Ahmedabad, IND</h3>
+                    <p>April 12, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Cafe Soul Garden, Surat, IND</h3>
+                    <p>April 18, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Great Bear, Chandigarh, IND</h3>
+                    <p>April 25, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Rooftop, Lucknow, IND</h3>
+                    <p>May 3, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Urban Bistro, Bhopal, IND</h3>
+                    <p>May 10, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>Cafe 27, Indore, IND</h3>
+                    <p>May 15, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="completed" data-year="2024">
+                    <h3>The Urban Socialite, Nagpur, IND</h3>
+                    <p>May 20, 2024</p>
+                    <span class="tour-status status-completed">Completed</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Piano Man Jazz Club, New Delhi, IND</h3>
+                    <p>January 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Bombay Canteen, Mumbai, IND</h3>
+                    <p>January 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Toit Brewpub, Bangalore, IND</h3>
+                    <p>January 15, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Cafe Mambo, Goa, IND</h3>
+                    <p>January 20, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Social, Pune, IND</h3>
+                    <p>January 25, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Southern Grill, Chennai, IND</h3>
+                    <p>February 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Smoke House Deli, Kolkata, IND</h3>
+                    <p>February 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Olive Bar & Kitchen, Hyderabad, IND</h3>
+                    <p>February 15, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Bar Bar, Jaipur, IND</h3>
+                    <p>February 20, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Irish House, Ahmedabad, IND</h3>
+                    <p>March 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Cafe Dalal Street, Surat, IND</h3>
+                    <p>March 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Great Kabab Factory, Lucknow, IND</h3>
+                    <p>March 15, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Black Sheep Bistro, Bhopal, IND</h3>
+                    <p>March 20, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Yellow Chilli, Indore, IND</h3>
+                    <p>April 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Bar Stock Exchange, Nagpur, IND</h3>
+                    <p>April 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Khyber, Varanasi, IND</h3>
+                    <p>April 15, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Sky High, Patna, IND</h3>
+                    <p>April 20, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Cafe de Flore, Ranchi, IND</h3>
+                    <p>May 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Local, Coimbatore, IND</h3>
+                    <p>May 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Marina, Madurai, IND</h3>
+                    <p>May 15, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Purple Martini, Kathmandu, NPL</h3>
+                    <p>May 20, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>Roadhouse Cafe, Pokhara, NPL</h3>
+                    <p>June 5, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="tour-card" data-status="cancelled" data-year="2025">
+                    <h3>The Village Cafe, Chitwan, NPL</h3>
+                    <p>June 10, 2025</p>
+                    <span class="tour-status status-cancelled">Cancelled</span>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="section-container">
+            <div class="logo">
+                <div class="logo-main">
+                </div>
+                <div class="logo-sub">Managed by WQ Studio & BnT Musiz and Label</div>
+            </div>
+            <p>© 2025 Rohit Kshetri & Rashmika Luitel. All rights reserved.</p>
+            <p>Under our private music policy, visual and audio assets are protected and unavailable for public sharing. For inquiries regarding authorized access, please contact our media team.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/yourprofile"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Highlight active navigation link
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href').split('#')[0];
+            if (href === currentPage || (href === 'index.html' && window.location.pathname === '/')) {
+                link.classList.add('active');
+            }
+        });
+
+        // Search and filter functionality
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+        const yearFilter = document.getElementById('yearFilter');
+        const tourCards = document.querySelectorAll('.tour-card');
+
+        function filterTours() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedStatus = statusFilter.value;
+            const selectedYear = yearFilter.value;
+
+            tourCards.forEach(card => {
+                const venue = card.querySelector('h3').textContent.toLowerCase();
+                const status = card.getAttribute('data-status');
+                const year = card.getAttribute('data-year');
+
+                const matchesSearch = venue.includes(searchTerm);
+                const matchesStatus = selectedStatus === 'all' || status === selectedStatus;
+                const matchesYear = selectedYear === 'all' || year === selectedYear;
+
+                if (matchesSearch && matchesStatus && matchesYear) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterTours);
+        statusFilter.addEventListener('change', filterTours);
+        yearFilter.addEventListener('change', filterTours);
+    </script>
+</body>
+</html>

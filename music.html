@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Rohit Kshetri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #b8860b;
+            --dark-gold: #a0780a;
+            --light-gold: #f8f0e0;
+            --white: #ffffff;
+            --off-white: #f9f7f0;
+            --dark-text: #222222;
+            --medium-text: #555555;
+            --light-text: #777777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-text);
+            background: var(--off-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 100%);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.3px;
+            margin-bottom: 15px;
+        }
+
+        .logo-main {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-main span:not(:last-child):after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            color: var(--medium-text);
+            opacity: 0.5;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            background-color: var(--white);
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+            top: 20%;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .gold-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 25px auto;
+            border: none;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 0 0 100px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .section-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--medium-text);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .release-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 0;
+        }
+
+        .release-card {
+            background: linear-gradient(145deg, var(--white) 0%, var(--light-gold) 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-top: 5px solid var(--gold);
+            position: relative;
+        }
+
+        .release-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .release-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .release-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+
+        .release-info p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--medium-text);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .release-info ul {
+            list-style: none;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 1.1rem;
+            color: var(--medium-text);
+        }
+
+        .release-info ul li {
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .release-info ul li:hover {
+            color: var(--gold);
+        }
+
+        .members-only {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .members-only i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .members-only p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .release-card:hover .members-only,
+        .performance-item:hover .members-only {
+            opacity: 1;
+        }
+
+        .additional-info {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--white);
+            margin-top: 0;
+        }
+
+        .additional-info p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--medium-text);
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .additional-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .additional-info a:hover {
+            color: var(--dark-gold);
+        }
+
+        .performance-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .performance-item {
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .performance-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .performance-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+
+        .performance-text p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer .logo {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 8px 12px;
+            }
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            .additional-info p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+            .header-content {
+                padding-top: 15px;
+            }
+            .nav-container {
+                padding: 0 20px;
+            }
+            .section {
+                padding: 80px 0;
+            }
+            .release-grid {
+                grid-template-columns: 1fr;
+            }
+            .additional-info {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .gold-divider {
+                margin: 15px auto;
+            }
+            header {
+                min-height: 600px;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 0;
+                align-items: center;
+            }
+            .nav-links a {
+                font-size: 1rem;
+                padding: 10px 12px;
+                width: 100%;
+                text-align: center;
+            }
+            .hero {
+                padding: 30px 20px;
+            }
+            .logo-main {
+                flex-direction: column;
+                gap: 0;
+            }
+            .logo-main span:not(:last-child):after {
+                display: none;
+            }
+            .additional-info p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-main">
+                        <span>Private Music Official</span>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="music.html" class="active">MUSIC</a>
+                    <a href="gallery.html">GALLERY</a>
+                    <a href="tour.html">TOUR</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="about.html">ABOUT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <h1>Albums & Live Performance</h1>
+                <hr class="gold-divider">
+                <p>Discover my studio albums below</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-container">
+            <div class="release-grid">
+                <div class="release-card">
+                    <div class="release-info">
+                        <h3>Beginning (2019-2021)</h3>
+                        <p>989K Streams</p>
+                        <ul>
+                            <li>Blood In Her ft. Ujjwal Shrestha</li>
+                            <li>Dilemma</li>
+                            <li>Tears Of The Broken Soul</li>
+                            <li>God Heals ft. Rashmika Luitel</li>
+                            <li>Blind Lady</li>
+                            <li>World Of Mine ft. Edean</li>
+                            <li>Heaven ft. Ujjwal Shrestha</li>
+                            <li>Long Way Down</li>
+                            <li>Less Than Me</li>
+                        </ul>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="release-card">
+                    <div class="release-info">
+                        <h3>Chapter (2022-2025)</h3>
+                        <p>1.6M Streams</p>
+                        <ul>
+                            <li>Slow Hands</li>
+                            <li>Weather Girl</li>
+                            <li>Dear She</li>
+                            <li>Regret</li>
+                            <li>Forever Gone</li>
+                            <li>Whole New World</li>
+                            <li>Our Goodbyes</li>
+                            <li>Monica</li>
+                            <li>Hurt Me More</li>
+                        </ul>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+            </div>
+            <div class="additional-info">
+                <p>Explore more of our musical journey! Join our exclusive membership for behind-the-scenes content and early access to new releases.</p>
+            </div>
+            <div class="section-header" style="margin-top: 0;">
+                <h2>Live Performances</h2>
+                <p>Experience our live shows</p>
+            </div>
+            <div class="performance-list">
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Sign Of The Times (Harry Styles Cover)</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Forever Young (Alphaville Cover)</h3>
+                        <p>Bangalore, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Dear She</h3>
+                        <p>Bangalore, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>World Of Mine</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Paper Hurt Us (Rashmika Luitel Cover)</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Kho Gaye Hum Kahan (Prateek Kuhad Cover)</h3>
+                        <p>Hyderabad, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Long Way Down</h3>
+                        <p>Bangalore, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Blood In Her</h3>
+                        <p>Hyderabad, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Killer (Rashmika Luitel Cover)</h3>
+                        <p>Hyderabad, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Little Things (One Direction Cover)</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Her Own Love (Edean Cover)</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Night Changes (One Direction Cover)</h3>
+                        <p>New Delhi, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+                <div class="performance-item">
+                    <div class="performance-text">
+                        <h3>Sorry (Justin Bieber Cover)</h3>
+                        <p>Bangalore, IND</p>
+                    </div>
+                    <div class="members-only">
+                        <i class="fas fa-lock"></i>
+                        <p>Members Only Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="section-container">
+            <div class="logo">
+                <div class="logo-main">
+                </div>
+                <div class="logo-sub">Managed by WQ Studio & BnT Musiz and Label</div>
+            </div>
+            <p>© 2025 Rohit Kshetri & Rashmika Luitel. All rights reserved.</p>
+            <p>Under our private music policy, visual and audio assets are protected and unavailable for public sharing. For inquiries regarding authorized access, please contact our media team.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for in-page anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Highlight active navigation link
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href').split('#')[0];
+            if (href === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

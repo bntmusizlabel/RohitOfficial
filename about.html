@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rohit Kshetri & The Team</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #b8860b;
+            --dark-gold: #a0780a;
+            --light-gold: #f8f0e0;
+            --white: #ffffff;
+            --off-white: #f9f7f0;
+            --dark-text: #222222;
+            --medium-text: #555555;
+            --light-text: #777777;
+            --gradient-bg: linear-gradient(135deg, #f9f7f0 0%, #f5f2e8 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--dark-text);
+            background: var(--off-white);
+            line-height: 1.9;
+            overflow-x: hidden;
+            font-size: 1.15rem;
+        }
+
+        header {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            background: var(--gradient-bg);
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 40px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.4px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .logo-main {
+            display: flex;
+            gap: 12px;
+        }
+
+        .logo-main span:not(:last-child):after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            color: var(--medium-text);
+            opacity: 0.5;
+        }
+
+        .logo-sub {
+            font-size: 0.95rem;
+            color: var(--medium-text);
+            font-weight: 400;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+            background-color: var(--white);
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .hero {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out;
+            top: 20%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .section {
+            padding: 120px 0;
+            position: relative;
+            background: var(--gradient-bg);
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--gold);
+            bottom: -12px;
+            left: 20%;
+        }
+
+        .section-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--medium-text);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .wiki-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .wiki-header {
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 25px;
+        }
+
+        .wiki-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+
+        .wiki-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .wiki-toc {
+            background: var(--off-white);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(184, 134, 11, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .wiki-toc:hover {
+            transform: translateY(-5px);
+        }
+
+        .wiki-toc h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+        }
+
+        .wiki-toc ul {
+            list-style: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+        }
+
+        .wiki-toc li {
+            margin-bottom: 12px;
+        }
+
+        .wiki-toc a {
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .wiki-toc a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .wiki-section {
+            margin-bottom: 50px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .wiki-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .wiki-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: var(--dark-text);
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+            padding-bottom: 12px;
+        }
+
+        .wiki-section p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--medium-text);
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+
+        .wiki-section ul {
+            list-style: disc;
+            margin-left: 35px;
+            margin-bottom: 25px;
+        }
+
+        .wiki-section li {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--medium-text);
+            margin-bottom: 12px;
+        }
+
+        .faq-section {
+            background: var(--gradient-bg);
+            padding: 120px 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-question {
+            padding: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--medium-text);
+            background: var(--off-white);
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #222222, #333333);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        footer .logo {
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .wiki-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .wiki-section h2 {
+                font-size: 2.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 100px 0;
+            }
+
+            .wiki-container {
+                padding: 30px;
+            }
+
+            .wiki-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .wiki-section h2 {
+                font-size: 1.9rem;
+            }
+
+            .faq-section {
+                padding: 100px 0;
+            }
+
+            .faq-question {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 80px 0;
+            }
+
+            .wiki-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .wiki-header p {
+                font-size: 1.2rem;
+            }
+
+            .wiki-section h2 {
+                font-size: 1.7rem;
+            }
+
+            .wiki-section p,
+            .wiki-section li,
+            .faq-answer {
+                font-size: 1.1rem;
+            }
+
+            .faq-question {
+                font-size: 1.3rem;
+            }
+
+            .section-container {
+                padding: 0 25px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0;
+                margin-bottom: 20px;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-main {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .logo-main span:not(:last-child):after {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-main">
+                        <span>Private Music Official</span>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="music.html">MUSIC</a>
+                    <a href="gallery.html">GALLERY</a>
+                    <a href="tour.html">TOUR</a>
+                    <a href="shop.html">SHOP</a>
+                    <a href="about.html" class="active">ABOUT</a>
+                </div>
+            </div>
+            <div class="hero">
+                <h1>About</h1>
+                <h1>Rohit Kshetri & The Team</h1>
+                <p>Discover the journey of a musical prodigy and his dedicated team.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="wiki-container">
+                <div class="wiki-header">
+                    <h1>Rohit Kshetri & The Team</h1>
+                    <p>Managed by WQ Studio & BnT Musiz and Label</p>
+                </div>
+                <div class="wiki-toc">
+                    <h3>Contents</h3>
+                    <ul>
+                        <li><a href="#early-life">Early Life</a></li>
+                        <li><a href="#career">Career</a></li>
+                        <li><a href="#discography">Discography</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#management">Management and Label</a></li>
+                        <li><a href="#personal-life">Personal Life</a></li>
+                    </ul>
+                </div>
+                <div class="wiki-section" id="early-life">
+                    <h2>Early Life</h2>
+                    <p>Rohit Kshetri was born on December 1, 2006, at Hetauda Model Hospital in Nepal. He never knew his parents' names—his only connection to them was through his father's abandoned guitar, left behind when he was brought to Hetauda Anath Ashram (orphanage) at just four years old. Though the details of his family remain a mystery, the worn-out guitar became his most precious possession, planting the seeds of his musical journey.</p>
+                    <p>Inside the ashram's bare walls, Rohit found his voice. With no formal training, he taught himself to play his father's guitar, humming melodies and later singing full songs. The other children became his first audience, then his bandmates—together, they turned their shared loneliness into music. Cover songs became their escape, with Rohit often leading the way, his voice carrying both pain and hope. Even without knowing where he came from, he knew music was his path forward, a gift from the father he couldn't remember.</p>
+                </div>
+                <div class="wiki-section" id="career">
+                    <h2>Career</h2>
+                    <p>Rohit Kshetri's professional music career began at the age of 13, when he was brought to Kathmandu by a caretaker from Hetauda Anath Ashram, affectionately known as "Ashram Aunty," to pursue his musical aspirations. His raw talent caught the attention of Shyam Shahi, his first music coach, who signed him and his orphanage friends—Rashmika Luitel, Shova Luitel, and Suyash Sharma—to a four-year contract with BnT Musiz and Label, a private music company. Under Shahi's guidance, Rohit was placed in a band named RaYerZ, marking the start of his professional journey.</p>
+                    <p><strong>2019:</strong> RaYerZ began working on their debut album, <em>Just Started</em>. Rohit collaborated with Edean, Shahi's son, to co-write the album's lead single, "Control Love," which became a sensation, topping charts in India, Turkey, and Sri Lanka's private music scenes for three consecutive weeks. Rohit also contributed to other major hits on the album, including "Have Me or Hate Me," "Watery Love," and "Change The Way I Are." The band's first performance took place on January 5 at The Attic in Hetauda, followed by their first international performance later that year, establishing RaYerZ as a promising act.</p>
+                    <p><strong>2020:</strong> The following year, BnT Musiz pushed Rohit to work on a solo album, <em>Beginning</em>, which he wrote entirely himself. The album's lead single, "Blood In Her," featuring Ujjwal Shrestha, dominated charts in India, Sri Lanka, the Philippines, and Turkey for six consecutive weeks. Despite the success, tensions arose with his coach, who disapproved of Rohit's solo achievements overshadowing RaYerZ. Shahi restricted Rohit from promotional gigs for <em>Beginning</em> and pressured him to focus on the band. Amid the COVID-19 pandemic, which limited live performances, Rohit released four additional solo singles—"Dilemma," "Tears Of The Broken Soul," "God Heals" (featuring Rashmika Luitel), and "Blind Lady"—all of which achieved significant success in private music markets.</p>
+                    <p><strong>2021:</strong> Rohit completed his contributions to RaYerZ's next batch of songs but grew increasingly frustrated with the band's direction and his coach's restrictions. He began working on a second solo album, <em>Reflections</em>, which explored themes of personal growth and resilience. Due to ongoing pandemic restrictions, he promoted the album through virtual gigs, connecting with fans via live-streamed performances. The album's release was delayed by BnT Musiz, citing concerns that Rohit's solo success was impacting the band's reputation, further straining his relationship with the label.</p>
+                    <p><strong>2022:</strong> As pandemic restrictions eased, Rohit returned to the stage with RaYerZ, performing both band and solo material when his coach was absent. His solo single "Slow Hands" from the upcoming album <em>Chapter</em> became a massive hit, holding the #1 spot in private music charts across multiple countries for 14 weeks. However, the intense schedule of gigs, driven by BnT Musiz's demands, took a toll on Rohit's mental and physical health. He battled depression, social anxiety, and vocal strain, exacerbated by the label's relentless pressure to perform.</p>
+                    <p><strong>2023:</strong> In early 2023, at the age of 16, Rohit made the bold decision to leave RaYerZ, citing creative differences and dissatisfaction with the band's music. He described the experience as stifling, stating he was "sick of" the band's direction. Upon the expiration of his BnT Musiz contract, Rohit negotiated a renewal with conditions for greater creative freedom, including control over his music, gigs, and promotions. His demands were accepted, and he took a hiatus from music to focus on his education, attending a local school in Kathmandu to complete his secondary studies. During this period, he also began mentoring young musicians at his former orphanage, giving back to the community that shaped him.</p>
+                    <p><strong>2024:</strong> Rohit signed with WQ Studio, a second record label, to support his evolving career. He resumed work on <em>Chapter</em>, releasing additional singles and performing at high-profile gigs across Nepal and India. His performances at venues like Big Show and Summer House Cafe drew large crowds, cementing his status as a rising star. Rohit also collaborated with new artists, including a duet with Rashmika Luitel, "Hurt Me More," which became a fan favorite. Despite his success, he prioritized mental health, working with a therapist to manage the pressures of fame and his demanding schedule.</p>
+                    <p><strong>2025:</strong> Early in 2025, Rohit completed <em>Chapter</em>, but BnT Musiz announced a new tour, "Love On Road," without his consent. Struggling with severe mental health challenges, Rohit cancelled all scheduled gigs. During a rehearsal for an acoustic version of one of his songs, a tragic accident occurred when a technical fault caused his right earbud to explode, resulting in permanent hearing loss in his right ear. Devastated, Rohit announced on his website that he was stepping away from music indefinitely, stating, "I can't take this anymore." He terminated his contracts with both BnT Musiz and WQ Studio, marking a shocking end to his musical career at the age of 18. Fans and industry peers expressed support, hoping for his eventual return, but Rohit has since remained silent on future plans.</p>
+                </div>
+                <div class="wiki-section" id="discography">
+                    <h2>Discography</h2>
+                    <p>Rohit Kshetri and The Team have released several popular tracks, known for their lyrical depth and musical versatility. Their notable singles include:</p>
+                    <ul>
+                        <li><strong>Hurt Me More</strong> – 94K streams</li>
+                        <li><strong>Evil Ones ft. Ah NA</strong> – 88K streams</li>
+                        <li><strong>Beautiful As She ft. Ujjwal</strong> – 112K streams</li>
+                        <li><strong>Slow Hands</strong> – 589K streams</li>
+                    </ul>
+                    <p>These tracks are available for streaming on various platforms, with exclusive content accessible to members through the official website.</p>
+                </div>
+                <div class="wiki-section" id="tours">
+                    <h2>Tours</h2>
+                    <p>Rohit Kshetri and The Team have embarked on several notable tours, captivating audiences across Nepal and India. Their tours include:</p>
+                    <ul>
+                        <li><strong>Rain With Band Tour (2019-2020)</strong> – A multi-city tour showcasing their early work.</li>
+                        <li><strong>Heavy Metal Tour (2023-2024)</strong> – Focused on their rock and heavy metal influences.</li>
+                        <li><strong>Love On Road Tour (2025)</strong> – Cancelled due to unforeseen circumstances.</li>
+                    </ul>
+                    <p>Plans for future tours are in development, with updates available on the official Tour page.</p>
+                </div>
+                <div class="wiki-section" id="management">
+                    <h2>Management and Label</h2>
+                    <p>Rohit Kshetri & The Team were managed by WQ Studio and BnT Musiz and Label. WQ Studio oversaw production and creative direction, ensuring high-quality output, while BnT Musiz handled distribution, marketing, and tour logistics. This partnership was crucial in building Kshetri's brand and expanding his reach in the music industry until his departure in 2025.</p>
+                    <p>All visual and audio assets are protected under a private music policy, with inquiries for authorized access directed to the media team via the contact form on the website.</p>
+                </div>
+                <div class="wiki-section" id="personal-life">
+                    <h2>Personal Life</h2>
+                    <p>Rohit Kshetri married his childhood friend and fellow musician, Rashmika Luitel, in a private ceremony in 2025, following a highly publicized and controversial relationship with another artist, Arati. The relationship with Arati drew significant media attention due to rumors of infidelity and creative disputes, which Rohit and his team never publicly addressed. Rashmika, in an interview with a private music publication, expressed her deep devotion to Rohit, stating, "I love him more than anybody else. He's my home, my muse, and my strength." Their bond, rooted in their shared upbringing at Hetauda Anath Ashram, has been a source of inspiration for fans and is reflected in their collaborative work, such as the duet "Hurt Me More."</p>
+                    <p>Outside of his music career, Rohit struggled with severe depression and anxiety, worsened by the pressures of fame and his 2025 accident that led to hearing loss. Unlike many public figures, he never engaged in advocacy or supported other artists, preferring to keep his struggles private. As his social anxiety and vocal disorder intensified, he withdrew completely—deleting all social media and cutting ties with the industry. Despite once mentoring at his former orphanage, he later disappeared entirely, rejecting any public connection to music or community efforts. Today, he lives in absolute isolation, with no known contact to the outside world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about Rohit Kshetri & The Team</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Who is Rohit Kshetri?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Rohit Kshetri is a Nepali musician and performer known for his soulful voice and dynamic stage presence. He led The Team, a group of talented musicians, and was managed by WQ Studio and BnT Musiz and Label until 2025.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What kind of music does Rohit and The Team perform?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Rohit Kshetri and The Team performed a blend of rock, pop, heavy metal, and traditional Nepali rock influences, creating a unique sound that resonated with diverse audiences.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why did Rohit leave the band?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Rohit Kshetri left his earlier band, RaYerZ, in 2023 due to creative differences and dissatisfaction with the band's musical direction, seeking greater creative control and the opportunity to explore new musical directions.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Rohit going on tour?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        The Love On Road Tour scheduled for 2025 was cancelled. Following his announcement in 2025, Rohit has stepped away from music, and no future tours are currently planned.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is Rohit married?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Rohit Kshetri married his childhood friend, Rashmika Luitel, in 2025.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I access exclusive content?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Exclusive content, including music, videos, and photos, was available to members through the official website. Following Rohit's departure from music in 2025, access details may be updated on the website.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I contact the management team?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        For inquiries, including media access or collaboration requests, use the contact form on the website or reach out via the official social media channels.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="section-container">
+            <div class="logo">
+                <div class="logo-main">
+                </div>
+                <div class="logo-sub">Managed by WQ Studio & BnT Musiz and Label
+
+ BnT Musiz and Label</div>
+            </div>
+            <p>© 2025 Rohit Kshetri & Rashmika Luitel. All rights reserved.</p>
+            <p>Under our private music policy, visual and audio assets are protected and unavailable for public sharing. For inquiries regarding authorized access, please contact our media team.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/yourprofile"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Highlight active navigation link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').split('#')[0];
+                if (href === currentPage || (href === 'index.html' && window.location.pathname === '/')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // FAQ toggle functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+
+                    // Close all other answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        if (ans !== answer) {
+                            ans.classList.remove('active');
+                            ans.previousElementSibling.querySelector('i').classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current answer
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = anchor.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navContainer = document.querySelector('.nav-container');
+                        const navHeight = navContainer ? navContainer.offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - navHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.location.hash = targetId; // Fallback to default anchor behavior
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
