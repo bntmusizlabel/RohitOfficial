@@ -111,62 +111,26 @@
             border-radius: 3px;
         }
 
-        .modal {
-            display: none;
+        .message-box {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
             z-index: 2000;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            display: none;
             animation: fadeIn 0.3s ease-out;
         }
 
-        .modal-content {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .modal-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--dark-text);
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--medium-text);
-            margin-bottom: 20px;
-        }
-
-        .modal-content .cta-button {
-            margin: 10px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--dark-text);
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--gold);
+        .message-box.show {
+            display: block;
         }
 
         .hero {
@@ -1022,16 +986,12 @@
                 font-size: 0.9rem;
             }
 
-            .modal-content {
-                padding: 20px;
+            .message-box {
+                padding: 15px;
                 max-width: 400px;
             }
 
-            .modal-content h3 {
-                font-size: 1.5rem;
-            }
-
-            .modal-content p {
+            .message-box p {
                 font-size: 0.9rem;
             }
         }
@@ -1244,20 +1204,16 @@
                 font-size: 1.1rem;
             }
 
-            .modal-content {
+            .message-box {
                 padding: 15px;
                 max-width: 300px;
             }
 
-            .modal-content h3 {
-                font-size: 1.2rem;
-            }
-
-            .modal-content p {
+            .message-box p {
                 font-size: 0.8rem;
             }
 
-            .modal-content .cta-button {
+            .message-box .cta-button {
                 padding: 8px 16px;
                 font-size: 0.8rem;
                 min-width: 120px;
@@ -1300,17 +1256,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <div class="modal" id="membersModal">
-        <div class="modal-content">
-            <span class="modal-close"><i class="fas fa-times"></i></span>
-            <h3>Members Only Content</h3>
-            <p>Please log in or sign up to access this exclusive content.</p>
-            <a href="login.html" class="cta-button">
-                <i class="fas fa-sign-in-alt"></i> Login / Sign Up
-            </a>
-        </div>
-    </div>
-
     <header id="home">
         <div class="gold-accent accent-1"></div>
         <div class="gold-accent accent-2"></div>
@@ -1689,46 +1634,46 @@
     </footer>
 
     <script>
-        // Modal handling for members-only content
+        // Message handling for members-only content
         const membersOnlyElements = document.querySelectorAll('.members-only');
-        const modal = document.getElementById('membersModal');
-        const modalClose = document.querySelector('.modal-close');
 
-        function openModal() {
-            modal.style.display = 'flex';
+        // Create a message box element dynamically
+        const messageBox = document.createElement('div');
+        messageBox.className = 'message-box';
+        messageBox.innerHTML = `
+            <p>This is exclusive members-only content.</p>
+            <button class="cta-button" onclick="closeMessage()">Close</button>
+        `;
+        document.body.appendChild(messageBox);
+
+        function openMessage() {
+            messageBox.classList.add('show');
             document.body.style.overflow = 'hidden';
         }
 
+        function closeMessage() {
+            messageBox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
         membersOnlyElements.forEach(element => {
-            element.addEventListener('click', openModal);
+            element.addEventListener('click', openMessage);
             element.addEventListener('touchstart', (e) => {
                 e.preventDefault();
-                openModal();
+                openMessage();
             });
         });
 
-        modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        modalClose.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        // Close message when clicking outside
+        messageBox.addEventListener('click', (e) => {
+            if (e.target === messageBox) {
+                closeMessage();
             }
         });
 
-        modal.addEventListener('touchstart', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        messageBox.addEventListener('touchstart', (e) => {
+            if (e.target === messageBox) {
+                closeMessage();
             }
         });
 
